@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
-import axios from "axios"
+import React from 'react'
 
-function App() {
+function Category() {
   const [data , setData] = useState([])
   axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")
   .then((result) => console.log(result) )
   return (
-    <div>App</div>
+    <div>Category</div>
   )
 }
 
-export default App
+export default Category
