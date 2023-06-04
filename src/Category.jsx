@@ -1,11 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import {categoryData} from "./Slice/Mealslice"
+import { useDispatch, useSelector } from 'react-redux'
 
 function Category() {
-  const [data , setData] = useState([])
-  axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")
-  .then((result) => console.log(result) )
+  const dispatch = useDispatch()
+  const data = useSelector((state) => {return state.meal})
+  console.log(data.isLoading)
+
+
+  useEffect(() => {
+  
+    dispatch(categoryData())
+ 
+  } ,[dispatch])
+
   return (
-    <div>Category</div>
+    <div>
+      {
+        data.isLoading ? (<div className="loader"></div>) : ("")
+      }
+      {
+        data.category.map((item , index) => {
+          return(
+            <div key={index}>
+              <h1>{item.strCategory}</h1>
+              <img src={item.strCategoryThumb}></img>
+              <p>{item.strCategoryDescription}</p>
+            </div>
+          )
+        })
+      }
+    </div>
   )
 }
 

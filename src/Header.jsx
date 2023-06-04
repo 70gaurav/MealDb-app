@@ -2,7 +2,10 @@ import React from 'react'
 
 function Header() {
   return (
-    <div>Header</div>
+    <header>
+      <h1>Khana khajana</h1>
+      {/* <img src="" alt="" /> */}
+    </header>
   )
 }
 
