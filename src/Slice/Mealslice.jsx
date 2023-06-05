@@ -13,5 +13,6 @@ export const mealSlice = createSlice ({
     reducers : {
 
     },
-    
+
 })
+export default mealSlice.reducer
