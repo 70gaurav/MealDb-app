@@ -24,3 +24,26 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+  .category{
+    background: url(./images/bg1.jpg) no-repeat fixed center / cover;
+    text-align: center;
+  }
+  .category-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  
+  }
+  .item{
+    width: 350px;
+    height: 350px;
+    background-color: rgba(234, 221, 202,0.5);
+    border-radius: 50%;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
