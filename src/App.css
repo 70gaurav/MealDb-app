@@ -10,15 +10,9 @@
     border-top: 16px solid #3498db;
     width: 120px;
     height: 120px;
-    -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
   }
   
-  /* Safari */
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
   
   @keyframes spin {
     0% { transform: rotate(0deg); }
@@ -27,7 +21,13 @@
   .category{
     background: url(./images/bg1.jpg) no-repeat fixed center / cover;
     text-align: center;
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
+
   .category-container{
     display: flex;
     align-items: center;
@@ -36,8 +36,8 @@
   
   }
   .item{
-    width: 350px;
-    height: 350px;
+    width: 400px;
+    height: 400px;
     background-color: rgba(234, 221, 202,0.5);
     border-radius: 50%;
     padding: 1rem;
@@ -46,4 +46,48 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
+    transition: all 0.6s ease;
+  }
+  .item:hover{
+    transform: translateY(20px);
+  }
+
+  .searchedMeal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .searchedMeal img{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+
+  }
+  header{
+    color: #f3f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 8rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+  .pop{
+    background-color: red;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 80%;
+    right: 0;
+  }
+  .pop img{
+    height: 70%;
+    width: 70%;
   }

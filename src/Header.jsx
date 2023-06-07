@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
+import confused from "./images/confused.png"
 import { searchData ,inputHandler , submitHandler } from './Slice/Mealslice'
 
 
@@ -20,13 +20,28 @@ function Header() {
   
   console.log(data.searchInput)
   return (
+   <>
     <header>
       <h1>Khana khajana</h1>
       <form onSubmit={(e) => {e.preventDefault(); dispatch(submitHandler())}}>
         <input placeholder='Search your favourite food' value={data.input} onChange={(e) => dispatch(inputHandler(e.target.value))}></input>
         <button type='submit'>🔍</button>
       </form>
+      
+       
+      
     </header>
+    {
+          data.searchedData ? (<div className='searchedMeal'>
+            <img src={data.searchedData[0].strMealThumb}></img>
+          </div>) : ("")
+        }
+        <div className='pop'>
+          <img src={confused} alt="" />
+          <p>Random</p>
+          <p>Meal</p>
+        </div>
+   </>
   )
 }
 

@@ -12,14 +12,16 @@ function Category() {
 
   return (
     <div className='category'>
-      <h1>Category</h1>
+      <h1>Categories</h1>
       {data.isLoading ? <div className="loader"></div> : ''}
       <div className="category-container">
         {data.category.map((item, index) => (
-          <div className="item" key={index}>
+        <div data-aos="zoom-in">
+            <div className="item" key={index}>
             <h1>{item.strCategory}</h1>
             <img src={item.strCategoryThumb} alt={item.strCategory} />
           </div>
+        </div>
         ))}
       </div>
     </div>

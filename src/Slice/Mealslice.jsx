@@ -12,7 +12,7 @@ export const categoryData = createAsyncThunk("meal" , async() => {
 export const searchData = createAsyncThunk("search" , async(searchInput) => {
     const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`)
    console.log(response)
-   return response
+   return response.data.meals
 
 
 })
@@ -25,7 +25,7 @@ export const mealSlice = createSlice({
         isRejected : false,
         input: "",
         searchInput: "",
-        searchedData : []
+        searchedData : false
     
     },
 
