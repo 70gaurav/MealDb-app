@@ -86,6 +86,7 @@
     position: fixed;
     top: 80%;
     right: 0;
+    z-index: 1;
   }
   .pop img{
     height: 70%;
