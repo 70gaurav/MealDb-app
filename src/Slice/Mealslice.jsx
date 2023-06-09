@@ -20,7 +20,14 @@ export const searchData = createAsyncThunk("search" , async(searchInput) => {
 export const randomData = createAsyncThunk("random" , async() => {
     const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/random.php`)
    console.log(response)
-   return response
+   return response.data.meals[0]
+
+
+})
+export const singleCategoryData = createAsyncThunk("category" , async(name) => {
+    const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`)
+   console.log(response)
+   return response.data.meals[0]
 
 
 })
@@ -34,7 +41,8 @@ export const mealSlice = createSlice({
         input: "",
         searchInput: "",
         searchedData : false,
-        randomMeal:false
+        randomMeal:false,
+        singleCategory:false
     
     },
 
@@ -80,6 +88,17 @@ export const mealSlice = createSlice({
 
         },
         [randomData.rejected] : (state) => {
+            state.isLoading = true
+        },
+        [singleCategoryData.pending] : (state) => {
+            state.isLoading = true
+        },
+        [singleCategoryData.fulfilled] : (state , action) => {
+            state.singleCategory = action.payload
+            state.isLoading = false
+
+        },
+        [singleCategoryData.rejected] : (state) => {
             state.isLoading = true
         },
 

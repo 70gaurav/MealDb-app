@@ -5,6 +5,7 @@ import Category from './Category'
 import { Provider } from 'react-redux'
 import Header from './Header'
 import "./App.css"
+import Singlecategory from './Singlecategory'
 
 function App() {
  
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Category/>}></Route>
+        <Route path='/category' element={<Singlecategory/>}></Route>
       </Routes>
       </BrowserRouter>
       </Provider>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import confused from "./images/confused.png"
+
 import { searchData, inputHandler, submitHandler, randomData } from './Slice/Mealslice'
 
 
@@ -28,9 +28,6 @@ function Header() {
           <input placeholder='Search your favourite food' value={data.input} onChange={(e) => dispatch(inputHandler(e.target.value))}></input>
           <button type='submit'>🔍</button>
         </form>
-
-
-
       </header>
       {
         data.searchedData ? (<div className='searchedMeal'>
@@ -39,14 +36,14 @@ function Header() {
       }
       {
         data.randomMeal ? (<div className='searchedMeal'>
-          {/* <h1>{data.randomMeal.data.meals[0].}</h1> */}
-          <img src={data.randomMeal.data.meals[0].strMealThumb}></img>
+          <h3>{data.randomMeal.strMeal
+          }</h3>
+          <img src={data.randomMeal.strMealThumb}></img>
         </div>) : ("")
       }
       <div className='pop' >
-        <button onClick={() => dispatch(randomData())}>Random</button>
-        <img src={confused} alt="" />
-        <p>Meal</p>
+        <p>Random meal</p>
+        <a href=""><img src="image.png"onClick={(e) => {e.preventDefault();dispatch(randomData())}}></img></a>
       </div>
     </>
   )
