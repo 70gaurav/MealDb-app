@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { categoryData,singleCategoryData } from './Slice/Mealslice';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Category() {
   const dispatch = useDispatch();
@@ -18,8 +19,8 @@ function Category() {
       <div className="category-container">
         {data.category.map((item, index) => (
        
-            <div className="item" key={index} onClick={() => dispatch(singleCategoryData(item.strCategory))}>
-            <h1>{item.strCategory}</h1>
+            <div className="item" key={index} >
+            <Link to="/category" onClick={() => dispatch(singleCategoryData(item.strCategory))}>{item.strCategory}</Link>
             <img src={item.strCategoryThumb} alt={item.strCategory} />
           </div>
         
