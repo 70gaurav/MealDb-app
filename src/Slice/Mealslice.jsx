@@ -9,5 +9,9 @@ export const mealSlice = createSlice ({
         isRejected : false,
         categories : [],
         
-    }
+    },
+    reducers : {
+
+    },
+    
 })
