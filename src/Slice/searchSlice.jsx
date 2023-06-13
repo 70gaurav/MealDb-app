@@ -3,6 +3,7 @@ import axios from "axios";
 
 export const searchedData = createAsyncThunk("search" , async(name) => {
     const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
+    return response.data.meals
 })
 
 export const searchSlice = createSlice({
@@ -10,10 +11,17 @@ export const searchSlice = createSlice({
     initialState: {
         inputValue : "",
         isLoading: false,
-        searchedMeal: [],
+        mealName: "",
+        searchedMeal: false,
     },
     reducers : {
-
+        inputHandler : (state,action) => {
+            state.inputValue = action.payload
+        },
+        submitHandler : (state,action) => {
+            state.mealName = state.inputValue
+            state.inputValue = ""
+        }
     },
     extraReducers : {
         [searchedData.pending] : (state) => {
@@ -26,4 +34,6 @@ export const searchSlice = createSlice({
     }
 
 })
+
+export const {inputHandler , submitHandler} = searchSlice.actions 
 export default searchSlice.reducer

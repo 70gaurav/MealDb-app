@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { categories } from './Slice/categorySlice'
 import { useDispatch, useSelector } from 'react-redux'
+import Loader from './App/Loader'
 
 function Category() {
     const dispatch = useDispatch()
@@ -20,26 +21,7 @@ function Category() {
         <div>
             {
                 data.isLoading ? (
-                    <div className='loader'>
-                        <h1>Cooking in progress</h1>
-                        <div id="cooking">
-                            <div className="bubble"></div>
-                            <div className="bubble"></div>
-                            <div className="bubble"></div>
-                            <div className="bubble"></div>
-                            <div className="bubble"></div>
-                            <div id="area">
-                                <div id="sides">
-                                    <div id="pan"></div>
-                                    <div id="handle"></div>
-                                </div>
-                                <div id="pancake">
-                                    <div id="pastry"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+               <Loader />
                 ) : ("")
             }
             

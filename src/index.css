@@ -303,3 +303,18 @@ header{
     width: 250px;
     border-radius: 50%;
 }
+.searchmeals{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.meal{
+    height: 300px;
+    width: 300px;
+
+}
+.meal img{
+    height: 80%;
+    width: 80%;
+}
