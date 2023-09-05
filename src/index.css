@@ -284,7 +284,7 @@ header{
 .box{
     width: 400px;
     height: 400px;
-    background-color: rgba(205, 185, 161, 0.6);
+    background-color: rgba(205, 185, 161, 0.5);
     text-align: center;
     margin: 1rem;
     border-radius: 50%;
